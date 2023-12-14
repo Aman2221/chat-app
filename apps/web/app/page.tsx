@@ -19,33 +19,34 @@ const Page = () => {
   };
 
   return (
-    <div
-      className="flex items-center justify-center"
-      style={{ height: "100vh" }}
-    >
-      <div className="flex flex-col items-center justify-center border-2 p-10">
-        <h1 className="uppercase mb-10 text-3xl text-slate-300 font-semibold">
-          Message box
-        </h1>
-        <input
-          type="text"
-          name="message"
-          placeholder="Write a message here"
-          value={message}
-          onChange={handleInputChange}
-          className={styles.messageInput}
-        />
-        <button
-          className={`${styles.sendMessageBtn} mt-5`}
-          onClick={handleSendMessage}
-        >
-          SEND MESSAGE
-        </button>
-        <ul className="mt-5">
-          {messages.map((msg, i) => (
-            <li key={i}>{msg}</li>
-          ))}
-        </ul>
+    <div className={styles.mainDiv}>
+      <div
+        className={`${styles.mainDivInner} flex items-center justify-center`}
+      >
+        <div className={`flex flex-col items-center justify-center p-10`}>
+          <h1 className="uppercase mb-10 text-3xl text-slate-300 font-semibold">
+            Message box
+          </h1>
+          <input
+            type="text"
+            name="message"
+            placeholder="Write a message here"
+            value={message}
+            onChange={handleInputChange}
+            className={styles.messageInput}
+          />
+          <button
+            className={`${styles.sendMessageBtn} mt-5`}
+            onClick={handleSendMessage}
+          >
+            SEND MESSAGE
+          </button>
+          <ul className="mt-5">
+            {messages.map((msg, i) => (
+              <li key={i}>{msg}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

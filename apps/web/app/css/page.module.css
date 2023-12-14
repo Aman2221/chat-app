@@ -1,3 +1,17 @@
+.mainDiv {
+  height: 100vh;
+  background: url("https://files.ably.io/ghost/prod/2023/01/build-a-realtime-chat-app-from-scratch--1-.png");
+}
+.mainDivInner {
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3);
+}
+.mainDivInner > div {
+  width: 400px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
 .messageInput {
   appearance: none;
   border: none;
