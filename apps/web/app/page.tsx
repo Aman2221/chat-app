@@ -2,32 +2,51 @@
 
 import React, { useState } from "react";
 import { useSocket } from "../context/SocketProvider";
+import styles from "./css/page.module.css";
 
 const Page = () => {
+  // useSocket is a custom hook which gives access to sendMessage function and incoming message function
   const { sendMessage, messages } = useSocket();
   const [message, setMessage] = useState("");
 
   const handleInputChange = (event: any) => {
     setMessage(event.target.value);
   };
+
+  const handleSendMessage = () => {
+    setMessage("");
+    sendMessage(message);
+  };
+
   return (
-    <div>
-      <h1>All messages will appear here.</h1>
-      <div>
+    <div
+      className="flex items-center justify-center"
+      style={{ height: "100vh" }}
+    >
+      <div className="flex flex-col items-center justify-center border-2 p-10">
+        <h1 className="uppercase mb-10 text-3xl text-slate-300 font-semibold">
+          Message box
+        </h1>
         <input
           type="text"
           name="message"
-          placeholder="Please enter message here"
+          placeholder="Write a message here"
           value={message}
           onChange={handleInputChange}
+          className={styles.messageInput}
         />
-        <button onClick={() => sendMessage(message)}>SEND MESSAGE</button>
+        <button
+          className={`${styles.sendMessageBtn} mt-5`}
+          onClick={handleSendMessage}
+        >
+          SEND MESSAGE
+        </button>
+        <ul className="mt-5">
+          {messages.map((msg, i) => (
+            <li key={i}>{msg}</li>
+          ))}
+        </ul>
       </div>
-      <ul>
-        {messages.map((msg, i) => (
-          <li key={i}>{msg}</li>
-        ))}
-      </ul>
     </div>
   );
 };
