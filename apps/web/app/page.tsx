@@ -14,8 +14,12 @@ const Page = () => {
   };
 
   const handleSendMessage = () => {
-    setMessage("");
-    sendMessage(message);
+    if (message.length) {
+      setMessage("");
+      sendMessage(message);
+    } else {
+      alert("Please enter a message");
+    }
   };
 
   return (
@@ -43,7 +47,9 @@ const Page = () => {
           </button>
           <ul className="mt-5">
             {messages.map((msg, i) => (
-              <li key={i}>{msg}</li>
+              <li className="text-lg text-slate-300" key={i}>
+                {msg}
+              </li>
             ))}
           </ul>
         </div>

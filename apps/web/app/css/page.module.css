@@ -47,3 +47,15 @@
   background: #e91e63;
   color: #fff;
 }
+
+@media screen and (max-width: 480px) {
+  .mainDivInner > div {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+  .messageInput,
+  .sendMessageBtn {
+    width: 90%;
+  }
+}
